@@ -1,4 +1,5 @@
 import { setupEvents } from "./events.js";
+import { sendMessage } from "./api.js";
 import { displayResponse } from "./ui.js";
 
 export function handleMessage(message) {
