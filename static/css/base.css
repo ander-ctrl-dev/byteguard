@@ -72,10 +72,10 @@ content: "";
 
   background-size: 32px 32px;
 
-  transform: perspective(1200px) rotateX(60deg);
+  transform: perspective(1300px) rotateX(60deg);
   transform-origin: bottom-center;
 
-  animation: grid-move 8s linear infinite;
+  animation: grid-move 2s linear infinite;
   filter: drop-shadow(0 0 8px rgba (173,216,230,0.15));
 
   opacity: 0.60;

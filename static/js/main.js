@@ -1,3 +1,4 @@
+window.addEventListener("DOMContentLoaded", () =>{
 import { setupEvents } from "./events.js";
 import { sendMessage } from "./api.js";
 import { displayResponse } from "./ui.js";
@@ -15,7 +16,7 @@ export function handleMessage(message) {
 document.addEventListener("DOMContentLoaded", () => {
 
   const inputEl = document.getElementById("user-input");
-  const mood = document.getElementById("mood");
+  const mood = document.getElementById("moodBox");
 
   inputEl.addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
@@ -93,3 +94,5 @@ async function getLocalWeather() {
 }
 
 getLocalWeather();
+
+});

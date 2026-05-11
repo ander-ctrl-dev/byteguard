@@ -4,26 +4,35 @@ let rightEye;
 let robot;
 let card;
 
-document.addEventListener('DOMContentLoaded', () => {
-  console.log("JS running");
-  mouth = document.querySelector('.mouth');
-  leftEye = document.querySelector('.eye.left');
-  rightEye = document.querySelector('.eye.right');
-  robot = document.querySelector('#robot');
-  card = document.querySelector('.card');
+/*document.addEventListener("DOMContentLoaded", () => {
 
-  setInterval(blinkEyes, 4000);
+    console.log("JS running");
 
-  robot.classList.add("thinking");
-  robot.classList.remove("thinking");
-  robot.classList.add("happy");
+    mouth = document.querySelector(".mouth");
+    leftEye = document.querySelector(".eye.left");
+    rightEye = document.querySelector(".eye.right");
+    robot = document.querySelector(".robot-wrapper");
+    card = document.querySelector(".panel");
 
-  addLog("Initializing scan...");
-  setTimeout(() => addLog("Checking ports..."), 500);
-  setTimeout(() => addLog("Scan complete ✓"), 1000);
+    console.log("robot =", robot);
 
-  mouth.classList.add("talking");
-});
+    setInterval(blinkEyes, 4000);
+
+    if (robot) {
+        robot.classList.add("thinking");
+        robot.classList.remove("thinking");
+        robot.classList.add("happy");
+    }
+
+    addLog("Initializing scan...");
+    setTimeout(() => addLog("Checking ports..."), 500);
+    setTimeout(() => addLog("Scan complete ✓"), 1000);
+
+    if (mouth) {
+        mouth.classList.add("talking");
+    }
+
+}); */
 
 export function displayResponse(text) {
   const response = document.getElementById("response");
