@@ -1,11 +1,6 @@
-window.addEventListener("DOMContentLoaded", () =>{
 import { setupEvents } from "./events.js";
 import { sendMessage } from "./api.js";
 import { displayResponse } from "./ui.js";
-
-document.addEventListener("DOMContentLoaded", () => {
-    setupEvents();
-});
 
 export function handleMessage(message) {
     sendMessage(message).then(data => {
@@ -92,7 +87,3 @@ async function getLocalWeather() {
         }
     );
 }
-
-getLocalWeather();
-
-});

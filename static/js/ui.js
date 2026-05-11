@@ -4,7 +4,7 @@ let rightEye;
 let robot;
 let card;
 
-/*document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
     console.log("JS running");
 
@@ -32,7 +32,7 @@ let card;
         mouth.classList.add("talking");
     }
 
-}); */
+}); 
 
 export function displayResponse(text) {
   const response = document.getElementById("response");
