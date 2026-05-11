@@ -109,7 +109,7 @@ def ping_google():
     except:
         return "Something went wrong while checking your connection."
 
-def solve_math(problem):
+
 
     try:
 
@@ -118,6 +118,27 @@ def solve_math(problem):
         result = eval(cleaned)
 
         return f"The answer is {result}"
+
+    except:
+        return "That math problem confused me."
+
+def solve_math(problem):
+
+    try:
+        # Keep only safe math characters
+        cleaned = re.sub(r"[^0-9+\-*/(). ]", "", problem)
+
+        # Prevent empty input
+        if not cleaned.strip():
+            return "I couldn't find a math problem to solve."
+
+        # Solve safely
+        result = eval(cleaned, {"__builtins__": None}, {})
+
+        return f"The answer is {result}"
+
+    except ZeroDivisionError:
+        return "Division by zero would tear a hole in reality."
 
     except:
         return "That math problem confused me."
