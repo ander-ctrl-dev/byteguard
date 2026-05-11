@@ -1,0 +1,23 @@
+.app-shell {
+  position: relative;
+  z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    gap: 120px;
+    margin-top: -60px;
+    min-height: 100vh;
+    padding: 60px;
+}
+
+/* LAYOUT REGIONS */
+
+.robot-panel,
+.center-panel,
+.right-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

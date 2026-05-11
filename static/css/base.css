@@ -1,0 +1,84 @@
+body.theme-debug {
+  --bg-main: #0a0a0f;
+  --bg1: #0a0a0f;
+  --bg2: #0a0a0f;
+
+  --accent: #888;
+  --accent-soft: rgba(255,255,255,0.1);
+
+  --text-main: #ccc;
+  --robot-eyes: #ccc;
+
+  --grid-primary: rgba(255,255,255,0.18);
+  --grid-secondary: rgba(120,180,255,0.12);
+
+  opacity: 0.60;
+}
+body {
+  margin: 0;
+  background: linear-gradient(
+  135deg,
+  #3b1f69 0%,
+  #6a3fb5 35%,
+  #ffb36b 100%
+  );
+
+  color:#f3f4ff; 
+}
+
+body.theme-gold {
+  --bg1: #2a2d4a;     /* deep blue-purple */
+  --bg2: #5b3a6d;     /* soft violet */
+  --bg3: #f4a261;     /* warm sunset orange */
+
+  --accent: #ffd700;
+  --accent-soft: rgba(255, 215, 0, 0.25);
+
+  --text-main: #ffffff;
+}
+h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6)
+}
+input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--panel-border);
+  color: white;
+
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+#userInput:focus {
+  border: 1px solid rgba(155, 122, 255, 0.6);
+
+  box-shadow:
+    0 0 12px rgba(155, 122, 255, 0.6),
+    inset 0 0 8px rgba(255,255,255,0.05);
+}
+body::after {
+content: "";
+  position: fixed;
+  left: 0;
+  bottom: -15%;
+  width: 100%;
+  height: 80%;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,0.22) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255,255,255,0.22) 2px, transparent 2px);
+
+  background-size: 32px 32px;
+
+  transform: perspective(1200px) rotateX(60deg);
+  transform-origin: bottom-center;
+
+  animation: grid-move 8s linear infinite;
+  filter: drop-shadow(0 0 8px rgba (173,216,230,0.15));
+
+  opacity: 0.60;
+
+  mask-image: linear-gradient(to top, black 70%, transparent 100%);
+}

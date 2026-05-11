@@ -1,0 +1,62 @@
+@keyframes grid-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -60px;
+  }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 25px rgba(255, 180, 200, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(255, 180, 200, 0.8); }
+}
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+@keyframes eyeMove {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateX(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateX(2px);
+  }
+}
+@keyframes shadowPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.18;
+    }
+
+    50% {
+        transform: scale(0.9);
+        opacity: 0.10;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.18;
+    }
+}
+@keyframes antennaSway {
+    0%   { transform: rotate(0deg); }
+    25%  { transform: rotate(8deg); }
+    50%  { transform: rotate(0deg); }
+    75%  { transform: rotate(-8deg); }
+    100% { transform: rotate(0deg); }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
