@@ -50,19 +50,6 @@ GREETING_WORDS = [
 ]
 
 def local_weather(location):
-    if any(word in message.lower().split() for word in WEATHER_WORDS):
-
-        message = message.lower()
-
-    if "in " in message:
-        location = message.split("in ", 1)[1].strip()
-    else:
-        location = "bend"
-
-        response = local_weather(location)
-
-    return (response, "happy")
-
 
     url = (
         f"https://api.openweathermap.org/data/2.5/weather"
@@ -70,7 +57,6 @@ def local_weather(location):
     )
 
     try:
-
         res = requests.get(url).json()
 
         city = res["name"]
@@ -81,6 +67,7 @@ def local_weather(location):
 
     except:
         return "I couldn't get the weather right now."
+
 
 
 
@@ -209,19 +196,17 @@ def get_response(message):
         "confused"
     )
 
-
     # WEATHER
-    elif any(word in message for word in WEATHER_WORDS):
+    if any(word in message.lower().split() for word in WEATHER_WORDS):
 
         if "in " in message:
-            location = message.split("in ", 1)[1]
+            location = message.split("in ", 1)[1].strip()
     else:
         location = "Bend"
 
     response = local_weather(location)
 
     return (response, "happy")
-
 
     # INTERNET / PING
     if any(word in message for word in NETWORK_WORDS):
