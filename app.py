@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, jsonify
 import random, socket, subprocess, requests, re
 from dotenv import load_dotenv
 import os
@@ -26,6 +26,7 @@ def think():
 
 WEATHER_WORDS = [
     "weather",
+    "temp",
     "forecast",
     "temperature",
     "rain",
@@ -93,39 +94,21 @@ def local_weather(location):
         return "I couldn't get the weather right now."
 
 def ping_google():
-
     try:
-
-        result = subprocess.run(
-            ["ping", "-c", "2", "google.com"],
-            capture_output=True,
-            text=True
-        )
-
-        if result.returncode == 0:
-            return random.choice([
-                "Internet connection looks stable.",
-                "Network looks healthy from here.",
-                "Connectivity check passed.",
-                "Everything appears online."
-            ])
-
-        else:
-            return "I'm having trouble reaching Google."
-
-    except:
-        return "Something went wrong while checking your connection."
-
+        requests.get("https://google.com", timeout=5)
+        return "Internet connection looks stable."
+    except Exception as e:
+        return f"Internet check failed: {e}"
 #-----------------------------------------------------------------------------------
 def get_response(message):
-    message = message.lower().strip()
+    words = message.lower().strip()
     
     # GREETINGS
-    if any(word in message.split() for word in GREETING_WORDS):
+    if any(words in GREETING_WORDS for word in words):
         return ("Hello, human.", "happy")
 
     # WEATHER
-    if any(word in message.split() for word in WEATHER_WORDS):
+    if any(words in WEATHER_WORDS for word in words):
         if "in " in message:
             location = message.split("in ", 1)[1].strip()
         else:
@@ -135,7 +118,7 @@ def get_response(message):
         return (response, "happy")
 
     # NETWORK
-    if any(word in message.split() for word in NETWORK_WORDS):
+    if any(words in NETWORK_WORDS for word in words):
         response = ping_google()
         if "stable" in response:
             mood = "happy"

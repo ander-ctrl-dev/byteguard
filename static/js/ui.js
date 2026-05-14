@@ -5,16 +5,11 @@ let robot;
 let card;
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    console.log("JS running");
-
     mouth = document.querySelector(".mouth");
     leftEye = document.querySelector(".eye.left");
     rightEye = document.querySelector(".eye.right");
     robot = document.querySelector(".robot-wrapper");
     card = document.querySelector(".panel");
-
-    console.log("robot =", robot);
 
     setInterval(blinkEyes, 4000);
 
@@ -41,7 +36,7 @@ export function displayResponse(text) {
 function setTheme(theme) {
   document.body.className = theme;
 }
-function updateResponse(text) {
+function displayResponse(text) {
   const box = document.getElementById("response");
 
   box.classList.remove("updated");
