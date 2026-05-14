@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const mood = document.getElementById("moodBox");
 
   inputEl.addEventListener("keydown", function(e) {
+    console.log("im in ur site");
     if (e.key === "Enter") {
       e.preventDefault();
       sendMessage();
@@ -32,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     inputEl.disabled = true;
 
     try {
-      const res = await fetch("/ask", {
+      const res = await fetch("/think", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -41,7 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const data = await res.json();
-      updateResponse(data.response);
+      console.log("Response received");
+      console.log(data);
+
+      displayResponse(data.response);
+      console.log("Displaying:", data.response);
 
     } catch (err) {
       console.error(err);

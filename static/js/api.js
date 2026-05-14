@@ -1,4 +1,5 @@
 export async function sendMessage(message) {
+  console.log("sending:", message);
   const res = await fetch("/think", {
     method: "POST",
     headers: {
