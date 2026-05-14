@@ -16,9 +16,3 @@ export function showResponse(text) {
 
     type();
 }
-
-input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-        document.getElementById("send-btn").click();
-    }
-});
