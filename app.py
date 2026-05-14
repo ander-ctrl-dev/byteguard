@@ -121,6 +121,7 @@ def get_response(message):
 
     message = message.lower().strip()
     message = message.replace("!", "").replace("?", "").replace(".", "")
+    
     if len(message) > 200:
         return (
         "That's a LOT of text. Try a shorter message",
@@ -132,9 +133,20 @@ def get_response(message):
         "confused"
     )
 
-    # WEATHER
-    if any(word in message.lower().split() for word in WEATHER_WORDS):
+    # GREETINGS
+    if any(word in GREETING_WORDS for word in message.lower().split()):
+        return (
+            random.choice([
+                "Hey there 👋",
+                "Hello, human.",
+                "Systems online and ready.",
+                "Pings standing by."
+            ]),
+            "happy"
+        )
 
+    # WEATHER
+    if any(word in WEATHER_WORDS for word in message.lower().split()):
         if "in " in message:
             location = message.split("in ", 1)[1].strip()
     else:
@@ -144,9 +156,8 @@ def get_response(message):
 
     return (response, "happy")
 
-    # INTERNET / PING
-    if any(word in message.lower().split() for word in NETWORK_WORDS):
-
+    # NETWORK
+    if any(word in NETWORK_WORDS for word in message.lower().split()):
         response = ping_google()
 
     if "stable" in response:
@@ -161,20 +172,7 @@ def get_response(message):
 
         response = solve_math(message)
     return (response, "thinking")
-
-    # GREETINGS
-    if any(word in message.lower().split() for word in GREETING_WORDS):
-
-        return (
-            random.choice([
-                "Hey there 👋",
-                "Hello, human.",
-                "Systems online and ready.",
-                "Pings standing by."
-            ]),
-            "happy"
-        )
-
+    
     # FALLBACK
     fallbacks = [
 
