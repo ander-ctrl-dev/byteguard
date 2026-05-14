@@ -45,9 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("Response received");
       console.log(data);
 
-      displayResponse(data.response);
-      console.log("Displaying:", data.response);
-
     } catch (err) {
       console.error(err);
     }
