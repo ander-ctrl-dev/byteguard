@@ -1,9 +1,11 @@
 const input = document.getElementById("user-input");
-const responseBox = document.getElementById("response");
 
 export function showResponse(text) {
+
+    const responseBox = document.getElementById("response");
+
     responseBox.textContent = "";
-    
+
     let i = 0;
 
     function type() {
