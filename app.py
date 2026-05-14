@@ -209,7 +209,7 @@ def get_response(message):
     return (response, "happy")
 
     # INTERNET / PING
-    if any(word in message for word in NETWORK_WORDS):
+    if any(word in message.lower().split() for word in NETWORK_WORDS):
 
         response = ping_google()
 
@@ -227,7 +227,7 @@ def get_response(message):
     return (response, "thinking")
 
     # GREETINGS
-    if any(word in message for word in GREETING_WORDS):
+    if any(word in message.lower().split() for word in GREETING_WORDS):
 
         return (
             random.choice([
