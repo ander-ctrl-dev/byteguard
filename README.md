@@ -1,4 +1,4 @@
-# Pings
+# ByteGuard
 
 Pings is a lightweight web-based assistant interface focused on responsive design, clean UI interaction, and modular front-end development. The project was built as a hands-on learning platform for improving web development, troubleshooting, and interface design skills.
 
