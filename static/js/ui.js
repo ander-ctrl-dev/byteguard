@@ -9,5 +9,6 @@ const input = document.getElementById("user-input");
 
     console.log("responseBox:", responseBox);
 
-    responseBox.textContent = text;
+    responseBox.innerHTML = `<span class="bot-response">${text}</span>`;
 }
+window.showResponse = showResponse;

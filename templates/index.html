@@ -48,8 +48,7 @@
     <div class="center-panel">
       <div class="panel">
 
-        <p id="moodBox">Mood: neutral</p>
-
+        <p id="mood" class="mood">Mood: neutral</p>
         <p id="response">Hi, I'm Pings</p>
 
         <input id="user-input" placeholder="Say something..." />
@@ -63,13 +62,10 @@
         <h3>System Logs</h3>
 
         <div id="logsBox">
-          <div class="log success">✔ Scan complete</div>
-          <div class="log warning">⚠ High latency detected</div>
-          <div class="log idle">…waiting</div>
-        </div>
-          <button class="diag-btn" onclick="runDiagnostics()">
-            Run Diagnostics
-          </button>
+        </div>          
+        <button class="diag-btn" onclick="clearLogs()">
+        Clear Logs
+      </button>
       </div>
     </div>
 

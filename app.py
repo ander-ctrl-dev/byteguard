@@ -31,23 +31,24 @@ WEATHER_WORDS = [
     "temperature",
     "rain",
     "snow",
-    "sunny"
+    "sunny",
 ]
 
 NETWORK_WORDS = [
     "internet",
+    "google",
     "wifi",
     "ping",
     "latency",
     "network",
-    "connection"
+    "connection",
 ]
 
 GREETING_WORDS = [
     "hi",
     "hello",
     "hey",
-    "yo"
+    "yo",
 ]
 
 def solve_math(problem):
@@ -101,39 +102,58 @@ def ping_google():
         return f"Internet check failed: {e}"
 #-----------------------------------------------------------------------------------
 def get_response(message):
-    words = message.lower().strip()
-    
+
+    words = message.lower().strip().split()
+
     # GREETINGS
-    if any(words in GREETING_WORDS for word in words):
+    if any(word in GREETING_WORDS for word in words):
         return ("Hello, human.", "happy")
 
+
     # WEATHER
-    if any(words in WEATHER_WORDS for word in words):
-        if "in " in message:
-            location = message.split("in ", 1)[1].strip()
-        else:
-            location = "Bend"
+    if any(word in WEATHER_WORDS for word in words):
+
+        location = "Bend"
+
+        original_words = message.strip().split()
+
+        for word in original_words:
+
+            if (
+                word.lower() not in WEATHER_WORDS
+                and word.lower() != "in"
+            ):
+                location = word.strip("?.!,")
+                break
 
         response = local_weather(location)
+
         return (response, "happy")
 
+
     # NETWORK
-    if any(words in NETWORK_WORDS for word in words):
+    if any(word in NETWORK_WORDS for word in words):
+
         response = ping_google()
-        if "stable" in response:
+
+        if "stable" in response.lower():
             mood = "happy"
         else:
             mood = "concerned"
 
         return (response, mood)
 
+
     # MATH
-    if any(char.isdigit() for char in message) or any(
-    op in message for op in ["+", "-", "*", "/", "x"]
-):
+    if (
+        any(char.isdigit() for char in message)
+        or any(op in message for op in ["+", "-", "*", "/", "x"])
+    ):
+
         response = solve_math(message)
 
         return (response, "thinking")
+
 
     # FALLBACK
     return (
@@ -142,4 +162,4 @@ def get_response(message):
     )
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)

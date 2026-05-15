@@ -1,91 +1,39 @@
-import { setupEvents } from "./events.js";
-import { sendMessage } from "./api.js";
 import { showResponse } from "./ui.js";
-
-export function handleMessage(message) {
-    sendMessage(message).then(data => {
-        showResponse(data.response);
-    });
-}
+import "./api.js";
+const logsBox = document.getElementById("logsBox");
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const inputEl = document.getElementById("user-input");
-  const mood = document.getElementById("moodBox");
+    const inputEl = document.getElementById("user-input");
 
-  inputEl.addEventListener("keydown", function(e) {
-    console.log("im in ur site");
-    if (e.key === "Enter") {
-      e.preventDefault();
-      sendMessage();
-    }
-  });
+    inputEl.addEventListener("keydown", async (e) => {
 
-  inputEl.addEventListener("input", () => {
-    mood.textContent = "Mood: thinking...";
-  });
+        if (e.key === "Enter") {
 
-  async function sendMessage() {
-    const value = inputEl.value;
-    if (!value.trim()) return;
+            e.preventDefault();
 
-    inputEl.value = "";
-    inputEl.disabled = true;
-
-    try {
-      const res = await fetch("/think", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ message: value })
-      });
-
-      const data = await res.json();
-      console.log("Response received");
-      console.log(data);
-
-    } catch (err) {
-      console.error(err);
-    }
-
-    inputEl.disabled = false;
-    inputEl.focus();
-    mood.textContent = "Mood: neutral";
-  }
-
+            sendMessage();
+        }
+    });
 });
 
-async function getLocalWeather() {
+function addLog(text, type) {
 
-    navigator.geolocation.getCurrentPosition(
+    const log = document.createElement("div");
 
-        async (position) => {
+    log.className = `log ${type}`;
 
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
+    log.textContent = text;
 
-            const res = await fetch("/local-weather", {
+    logsBox.appendChild(log);
 
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify({
-                    lat,
-                    lon
-                })
-            });
-
-            const data = await res.json();
-
-            document.getElementById("response").innerText =
-                data.response;
-
-            document.getElementById("moodBox").innerText =
-                `Mood: ${data.mood}`;
-        }
-    );
+    if (logsBox.children.length > 4) {
+        logsBox.removeChild(logsBox.firstChild);
+    }
 }
+function clearLogs() {
+    logsBox.innerHTML = "";
+}
+
+window.clearLogs = clearLogs;
+window.addLog = addLog;
