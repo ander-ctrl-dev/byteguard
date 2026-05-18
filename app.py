@@ -12,10 +12,10 @@ def home():
     return render_template("index.html")
 
 @app.route("/think", methods=["POST"])
-
 def think():
     data = request.get_json()
-    message = data.get("message", "")
+
+    message = data["message"]
 
     text, mood = get_response(message)
 
@@ -23,6 +23,7 @@ def think():
         "response": text,
         "mood": mood
     })
+
 
 WEATHER_WORDS = [
     "weather",

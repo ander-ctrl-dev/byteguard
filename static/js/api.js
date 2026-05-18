@@ -60,8 +60,9 @@ async function sendMessage() {
         })
     });
     await new Promise(resolve => setTimeout(resolve, 800));
-    const data = await response.json();
+    const data = await response.text();
+    console.log(text);
 
-    showResponse(data.response);
+    showResponse(text);
 }
 window.sendMessage = sendMessage;
