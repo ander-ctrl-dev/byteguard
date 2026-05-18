@@ -93,7 +93,7 @@ def local_weather(location):
         return f"It's currently {temp}°F with {desc} in {city}."
 
     except Exception as e:
-        return str(e)
+        return "The weather satellites are refusing to help me after what I did on Tuesday in Atlantic City", "confused"
 
 
 def ping_google():
