@@ -208,6 +208,7 @@ fallback_replies = [
     "You’ve entered the danger zone of software development.",
     "I’m interpreting that as constructive chaos.",
     "Task failed successfully."
+            return random.choice(fallback_replies)
     ]
 
 if __name__ == "__main__":
