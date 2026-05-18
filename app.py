@@ -84,6 +84,7 @@ def local_weather(location):
 
     try:
         res = requests.get(url).json()
+        print(res)
 
         city = res["name"]
         temp = round(res["main"]["temp"])
@@ -91,8 +92,9 @@ def local_weather(location):
 
         return f"It's currently {temp}°F with {desc} in {city}."
 
-    except:
-        return "I couldn't get the weather right now."
+    except Exception as e:
+        return str(e)
+
 
 def ping_google():
     try:
