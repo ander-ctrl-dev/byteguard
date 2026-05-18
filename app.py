@@ -210,7 +210,7 @@ def get_response(message):
         "Task failed successfully.",
     ]
 
-        return random.choice(fallback_replies, "confused")
+        return random.choice("fallback_replies"), "confused"
 
 if __name__ == "__main__":
     app.run(debug=True)
