@@ -94,7 +94,7 @@ def local_weather(location):
         return f"It's currently {temp}°F with {desc} in {city}."
 
     except Exception as e:
-        return "The weather satellites are refusing to help me after what I did on Tuesday in Atlantic City", "confused"
+        return ("The weather satellites are refusing to help me after what I did on Tuesday in Atlantic City")
 
 
 def ping_google():
@@ -158,7 +158,7 @@ def get_response(message):
         return (response, "thinking")
 
     # FALLBACK
-        fallback_replies = [
+    fallback_replies = [
         "That made my circuits itch.",
         "I understood approximately 12% of that.",
         "Please hold while I pretend to understand.",
@@ -211,7 +211,7 @@ def get_response(message):
         "Task failed successfully.",
     ]
 
-        return (random.choice(fallback_replies), "confused")
+    return (random.choice(fallback_replies), "confused")
 
 if __name__ == "__main__":
     app.run(debug=True)
