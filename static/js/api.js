@@ -1,3 +1,5 @@
+import { showResponse } from "./ui.js";
+
 const input = document.getElementById("user-input");
 
 async function sendMessage() {
@@ -14,29 +16,36 @@ async function sendMessage() {
 
     if (lowerMessage.includes("weather")) {
 
-        addLog("Connecting to weather satellites...", "info");
-        addLog("Analyzing atmospheric data...", "info");
-        addLog("Forecast generated", "success");
+    addLog("Connecting to weather satellites...", "info");
+    addLog("Analyzing atmospheric data...", "info");
+    addLog("Forecast generated", "success");
 
-    }
+} else if (
 
-    else if (
-        lowerMessage.includes("ping") ||
-        lowerMessage.includes("network") ||
-        lowerMessage.includes("internet")
-    ) {
+    lowerMessage.includes("ping") ||
+    lowerMessage.includes("network") ||
+    lowerMessage.includes("internet") ||
+    lowerMessage.includes("wifi") ||
+    lowerMessage.includes("wi-fi") ||
+    lowerMessage.includes("slow") ||
+    lowerMessage.includes("connection")
 
-        addLog("Pinging remote host...", "info");
-        addLog("Checking latency...", "warning");
-        addLog("Connection stable", "success");
+) {
 
-    }
+    addLog("Pinging remote host...", "info");
+    addLog("Checking latency...", "warning");
+    addLog("Connection stable", "success");
+
+}
+
 
     else if (
         lowerMessage.includes("+") ||
         lowerMessage.includes("-") ||
         lowerMessage.includes("*") ||
-        lowerMessage.includes("/")
+        lowerMessage.includes("/") ||
+        lowerMessage.includes("x")
+
     ) {
 
         addLog("Initializing math engine...", "info");
@@ -61,6 +70,6 @@ async function sendMessage() {
     });
     await new Promise(resolve => setTimeout(resolve, 800));
     const data = await response.json();
-    showResponse(data.response);
+    showResponse(data.response, data.mood);
 }
 window.sendMessage = sendMessage;

@@ -5,11 +5,10 @@
     justify-content: center;
     align-items: center;
 
-
-    gap: 120px;
-    margin-top: -60px;
+    gap: 80px;
     min-height: 100vh;
-    padding: 60px;
+    padding: 60px 60px 120px 60px;
+
 }
 
 /* LAYOUT REGIONS */
@@ -23,4 +22,8 @@
 }
 .robot-panel {
   width: 100%
+}
+
+.center-panel {
+  gap: 160px;
 }

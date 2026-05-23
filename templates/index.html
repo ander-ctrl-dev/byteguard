@@ -45,39 +45,88 @@
     </div>
 
 </div>
-    <!-- CENTER: Main Card -->
+
+    <!-- CENTER: Main Chat -->
     <div class="center-panel">
-      <div class="panel">
+        <div class="panel">
 
-        <p id="mood" class="mood">Mood: neutral</p>
-        <p id="response">Hi! I’m Pings 👋
+            <p id="mood" class="mood">MOOD: NEUTRAL</p>
 
-I translate technical systems into
-plain English so anyone can understand them.
+            <div id="response" class="response-box">
+                Hi! I’m Pings 👋
+                I translate technical systems into plain English so anyone can understand them.
+            </div>
 
-Try asking about:
-networking, diagnostics, weather or internet issues.
-</p>
+            <input
+                id="user-input"
+                placeholder="Say something..."
+            />
 
-        <input id="user-input" placeholder="Say something..." />
-      </div>
+            <div class="prompt-suggestions">
+                <button class="prompt-chip">➗ Try a math problem</button>
+                <button class="prompt-chip">☁️ What's the weather?</button>
+                <button class="prompt-chip">💻 Explain IP addresses</button>
+                <button id="diag-toggle" class="prompt-chip">
+    🔧 Diagnose connection issues
+</button>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- DIAGNOSTICS -->
+    <div class="diagnostics-panel" id="diagnostics-panel">
+
+        <div class="diag-card">
+            <button class="diag-tab">
+                🌐 Internet is slow
+            </button>
+
+            <div class="diag-content">
+                Your internet may be overloaded, weak, or struggling to reach your device.
+            </div>
+        </div>
+
+        <div class="diag-card">
+            <button class="diag-tab">
+                📶 Wi-Fi barely reaches my room
+            </button>
+
+            <div class="diag-content">
+                Walls, distance, or interference may be weakening the signal.
+            </div>
+        </div>
+
+        <div class="diag-card">
+            <button class="diag-tab">
+                ❌ Websites won’t load
+            </button>
+
+            <div class="diag-content">
+                Your router or internet provider may be having connection issues.
+            </div>
+        </div>
+
     </div>
 
     <!-- RIGHT: Logs -->
     <div class="right-panel">
-      <div class="panel">
+        <div class="panel">
 
-        <h3>System Logs</h3>
+            <h3>System Logs</h3>
 
-        <div id="logsBox">
-        </div>          
-        <button class="diag-btn" onclick="clearLogs()">
-        Clear Logs
-      </button>
-      </div>
+            <div id="logsBox"></div>
+
+            <button class="diag-btn" onclick="clearLogs()">
+                Clear Logs
+            </button>
+
+        </div>
     </div>
 
-  </div>
+</div>
+
 
   <!-- JS -->
   <script type="module" src="/static/js/main.js"></script>

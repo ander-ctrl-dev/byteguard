@@ -15,6 +15,20 @@
     left: 0;
     margin-bottom: 20px;
 }
+
+body.theme-happy .robot-wrapper {
+    transform: translateY(-5px);
+}
+
+body.theme-concerned .robot-head {
+    animation: shake 0.3s infinite;
+}
+
+body.theme-happy .eye {
+    background: #7dffb3;
+}
+
+
 .robot-wrapper::after {
     content: "";
 

@@ -1,14 +1,13 @@
-const input = document.getElementById("user-input");
+export function showResponse(text, mood) {
 
-  export function showResponse(text) {
+    const moodText = document.getElementById("mood");
 
-    console.log("showResponse fired");
-    console.log("text:", text);
+    moodText.textContent = `Mood: ${mood}`;
+
+    document.body.className = `theme-${mood}`;
 
     const responseBox = document.getElementById("response");
 
-    console.log("responseBox:", responseBox);
-
-    responseBox.innerHTML = `<span class="bot-response">${text}</span>`;
+    responseBox.innerHTML =
+        `<span class="bot-response">${text}</span>`;
 }
-window.showResponse = showResponse;
