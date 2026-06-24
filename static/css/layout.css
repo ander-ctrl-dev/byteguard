@@ -1,14 +1,39 @@
 .app-shell {
   position: relative;
   z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
     gap: 80px;
     min-height: 100vh;
     padding: 60px 60px 120px 60px;
+}
+.app-header {
+  font-size: 2rem;
+}
+.app-shell::before {
+    content: "";
 
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 60vh;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px);
+
+    background-size: 40px 40px;
+
+    pointer-events: none;
+
+    transform: perspective(600px) rotateX(75deg);
+    transform-origin: bottom;
+
+    opacity: 2;
 }
 
 /* LAYOUT REGIONS */
@@ -21,9 +46,10 @@
     align-items: center;
 }
 .robot-panel {
-  width: 100%
+  width: 100%;
+  margin-bottom: 20px;
+  
 }
-
 .center-panel {
   gap: 160px;
 }

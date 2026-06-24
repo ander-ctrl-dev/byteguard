@@ -1,151 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/robot.css') }}?v=2" /> <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}" />
+  </head>
+
+  <body class="theme-gold">
+    <!-- Header (NOT in head) -->
+    <div class="app-header">ByteGuard</div>
+
+    <!-- Main Layout -->
+    <div class="app-shell">
+      <div class="robot-panel">
+        <div class="robot-wrapper">
+          <div class="pings">
+          <div class="pings-head">
+
+        <div class="visor">
+      <div class="eye"></div>
+    <div class="eye"></div>
+  </div>
+<div class="mouth"></div>
+
+    </div>
+</div>
 
 
-<!-- Styles -->
-<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/robot.css') }}?v=2">  <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
-</head>
 
-<body class="theme-gold">
+      <!-- CENTER: Main Chat -->
+      <div class="center-panel">
+        <div class="panel">
+          <p id="mood" class="mood">Pings • Online</p>
 
-<!-- Header (NOT in head) -->
-<div class="app-header">ByteGuard</div>
+      <div class="app">
 
-<!-- Main Layout -->
-<div class="app-shell">
-    <div class="robot-panel">
+    <div class="pings">
+        <!-- robot -->
+    </div>
 
-    <div class="robot-wrapper">
+    <div class="chat-card">
 
-        <div class="antenna"></div>
-
-        <div class="head">
-            <div class="visor">
-                <div class="eye left"></div>
-                <div class="eye right"></div>
-            </div>
-        <div class="mouth"></div>
+        <div id="response">
+            Hi! I'm Pings 👋
+            Ask me anything about networking.
         </div>
-        <div class="neck"></div>
-        <div class="body"></div>
 
-        <div class="arm left"></div>
-        <div class="arm right"></div>
+        <input
+            id="user-input"
+            placeholder="Why is my Wi-Fi slow?"
+        >
 
-        <div class="leg left"></div>
-        <div class="leg right"></div>
+        <button id="send-btn">
+            Ask Pings
+        </button>
 
     </div>
 
 </div>
 
-    <!-- CENTER: Main Chat -->
-    <div class="center-panel">
-        <div class="panel">
 
-            <p id="mood" class="mood">MOOD: NEUTRAL</p>
+      <!-- DIAGNOSTICS -->
+      
+      </div>
 
-            <div id="response" class="response-box">
-                Hi! I’m Pings 👋
-                I translate technical systems into plain English so anyone can understand them.
-            </div>
-
-            <input
-                id="user-input"
-                placeholder="Say something..."
-            />
-
-            <div class="prompt-suggestions">
-                <button class="prompt-chip">➗ Try a math problem</button>
-                <button class="prompt-chip">☁️ What's the weather?</button>
-                <button class="prompt-chip">💻 Explain IP addresses</button>
-                <button id="diag-toggle" class="prompt-chip">
-    🔧 Diagnose connection issues
-</button>
-
-            </div>
-
-        </div>
-    </div>
-
-    <!-- DIAGNOSTICS -->
-    <div class="diagnostics-panel" id="diagnostics-panel">
-
-        <div class="diag-card">
-            <button class="diag-tab">
-                🌐 Internet is slow
-            </button>
-
-            <div class="diag-content">
-                What’s happening?
-Your connection is working, but it’s slower than normal.
-Try this:
-- Move closer to your Wi-Fi device.
-- Pause downloads or streaming on other devices.
-- Restart your internet equipment if the problem continues.
-
-            </div>
-        </div>
-
-        <div class="diag-card">
-            <button class="diag-tab">
-                📶 Wi-Fi barely reaches my room
-            </button>
-
-            <div class="diag-content">
-                
-    What’s happening?
-Your device is too far from the Wi-Fi source or something is blocking the signal.
-Try this:
-Move closer to your Wi-Fi device.
-Open doors between you and the Wi-Fi source.
-Avoid placing the Wi-Fi device inside cabinets or behind furniture.
-
-            </div>
-        </div>
-
-        <div class="diag-card">
-            <button class="diag-tab">
-                ❌ Websites won’t load
-            </button>
-
-            <div class="diag-content">
-    What's happening?
-Your device can’t connect to the internet right now.
-Try restarting your Wi-Fi equipment. If that doesn’t help, your internet provider may be experiencing an outage.
-
-            </div>
-        </div>
-
-    </div>
-
-    <!-- RIGHT: Logs -->
-    <div class="right-panel">
-        <div class="panel">
-
-            <h3>System Logs</h3>
-
-            <div id="logsBox"></div>
-
-            <button class="diag-btn" onclick="clearLogs()">
-                Clear Logs
-            </button>
-
-        </div>
-    </div>
-
-</div>
-
-
-<!-- JS -->
-<script type="module" src="/static/js/main.js"></script>
-
-</body>
+    <!-- JS -->
+    <script type="module" src="/static/js/main.js"></script>
+  </body>
 </html>
-

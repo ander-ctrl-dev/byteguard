@@ -1,81 +1,29 @@
 import { showResponse } from "./ui.js";
 import "./api.js";
-const logsBox = document.getElementById("logsBox");
 
-document.addEventListener("DOMContentLoaded", () => {
+const input = document.getElementById("user-input");
+const response = document.getElementById("response");
+const sendBtn = document.getElementById("send-btn");
 
-    const inputEl = document.getElementById("user-input");
+sendBtn.addEventListener("click", askPings);
 
-    inputEl.addEventListener("keydown", async (e) => {
+function askPings() {
 
-        if (e.key === "Enter") {
+    const question = input.value.toLowerCase();
 
-            e.preventDefault();
+    if (question.includes("wifi")) {
+        response.textContent =
+            "Wi-Fi issues are usually caused by distance, interference, or router problems.";
+    }
 
-            sendMessage();
-        }
-    });
-});
+    else if (question.includes("ip")) {
+        response.textContent =
+            "An IP address is like a mailing address for your device.";
+    }
 
-function addLog(text, type) {
-
-    const log = document.createElement("div");
-
-    log.className = `log ${type}`;
-
-    log.textContent = text;
-
-    logsBox.appendChild(log);
-
-    if (logsBox.children.length > 4) {
-        logsBox.removeChild(logsBox.firstChild);
+    else {
+        response.textContent =
+            "I'm still learning that topic.";
     }
 }
-function clearLogs() {
-    logsBox.innerHTML = "";
-}
 
-window.clearLogs = clearLogs;
-window.addLog = addLog;
-
-const promptChips = document.querySelectorAll(".prompt-chip");
-const inputField = document.querySelector("input");
-
-
-
-promptChips.forEach(chip => {
-
-    chip.addEventListener("click", () => {
-
-        let prompt = chip.textContent;
-
-        if (prompt.includes("math")) {
-            inputField.value = "What is five times ten?";
-        } else {
-            inputField.value = prompt;
-        }
-
-        inputField.focus();
-    });
-
-});
-
-const diagTabs = document.querySelectorAll(".diag-tab");
-
-diagTabs.forEach(tab => {
-
-    tab.addEventListener("click", () => {
-
-        const card = tab.parentElement;
-
-        card.classList.toggle("active");
-
-    });
-
-});
-const diagToggle = document.getElementById("diag-toggle");
-const diagPanel = document.getElementById("diagnostics-panel");
-
-diagToggle.addEventListener("click", () => {
-    diagPanel.classList.toggle("show-diags");
-});
