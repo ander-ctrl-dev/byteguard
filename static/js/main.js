@@ -1,29 +1,54 @@
-import { showResponse } from "./ui.js";
 import "./api.js";
 
 const input = document.getElementById("user-input");
-const response = document.getElementById("response");
+const responseBox = document.getElementById("response");
 const sendBtn = document.getElementById("send-btn");
 
 sendBtn.addEventListener("click", askPings);
+input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        askPings();
+    }
+});
 
-function askPings() {
+async function askPings() {
 
-    const question = input.value.toLowerCase();
+    const question = input.value.trim();
 
-    if (question.includes("wifi")) {
-        response.textContent =
-            "Wi-Fi issues are usually caused by distance, interference, or router problems.";
+    if (!question) return;
+
+    responseBox.textContent = "Thinking...";
+
+    try {
+
+        const response = await fetch("/think", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                message: question
+            })
+
+        });
+
+        const data = await response.json();
+
+        responseBox.textContent = data.response;
+
     }
 
-    else if (question.includes("ip")) {
-        response.textContent =
-            "An IP address is like a mailing address for your device.";
+    catch (error) {
+
+        responseBox.textContent =
+            "Something went wrong.";
+
+        console.error(error);
+
     }
 
-    else {
-        response.textContent =
-            "I'm still learning that topic.";
-    }
 }
-
