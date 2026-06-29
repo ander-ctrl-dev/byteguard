@@ -1,64 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html>
+<head>
+    <title>ByteGuard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/robot.css') }}?v=2" /> <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}" />
-  </head>
+<body>
 
-  <body class="theme-gold">
-    <!-- Header (NOT in head) -->
-    <div class="app-header">Pings is currently in the middle of a glow up. Check back soon!</div>
-    <!-- Main Layout -->
-    <div class="app-shell">
-      <div class="robot-panel">
-        <div class="robot-wrapper">
-          <div class="pings">
-          <div class="pings-head">
+<div class="room">
 
-        <div class="visor">
-      <div class="eye"></div>
-    <div class="eye"></div>
-  </div>
-<div class="mouth"></div>
+    <!-- Background -->
+    <div class="wall"></div>
+    <div class="floor"></div>
+    <div class="baseboard"></div>
+
+    <!-- Window -->
+    <div class="window">
+
+        <div class="sky">
+
+            <div class="star s1"></div>
+            <div class="star s2"></div>
+            <div class="star s3"></div>
+
+            <div class="moon">
+                <div class="crater c1"></div>
+                <div class="crater c2"></div>
+                <div class="crater c3"></div>
+            </div>
+
+        </div>
 
     </div>
-</div>
 
+    <!-- Window sill -->
+    <div class="windowsill"></div>
 
+    <!-- Hanging plant -->
+    <div class="plant">
 
-      <!-- CENTER: Main Chat -->
-      <div class="center-panel">
-        <div class="panel">
-          <p id="mood" class="mood">Pings • Online</p>
+        <div class="pot"></div>
 
-      <div class="app">
+        <div class="vine v1"></div>
+        <div class="vine v2"></div>
+        <div class="vine v3"></div>
 
-    <div class="pings">
-        <!-- robot -->
     </div>
 
-<div id="response" class="response-box">
-    Hi! I'm Pings 👋
+    <!-- Furniture -->
+    <div class="rug"></div>
+
+    <div class="beanbag"></div>
+
+    <div class="desk"></div>
+
+    <div class="bookshelf"></div>
+
+    <div class="robot-cat"></div>
+
+    <div class="penguin"></div>
+
+    <div class="fairy-lights"></div>
+
 </div>
 
-<input
-    id="user-input"
-    placeholder="Ask me anything..."
->
 
-<button id="send-btn">
-    Ask Pings
-    
-</button>
-</div>
-
-    <!-- JS -->
-    <script type="module" src="/static/js/main.js"></script>
-  </body>
+</body>
+<script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
 </html>

@@ -1,20 +1,13 @@
-async function askPings() {
-
-    const question = input.value;
-
-    response.innerHTML = "Pings is thinking...";
-
-    const res = await fetch("/ask", {
+export async function askPings(message) {
+    const response = await fetch("/think", {
         method: "POST",
         headers: {
-            "Content-Type":"application/json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            question
+            message
         })
     });
 
-    const data = await res.json();
-
-    response.innerHTML = data.answer;
+    return await response.json();
 }

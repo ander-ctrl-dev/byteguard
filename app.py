@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 import os
 from math import sqrt
 from openai import OpenAI
+print("Running from:", os.getcwd())
+print(__file__)
 
 
 load_dotenv()
@@ -44,7 +46,6 @@ Keep answers under 200 words.
     return jsonify({
         "answer": completion.choices[0].message.content
     })
-
 
 @app.route("/")
 def home():

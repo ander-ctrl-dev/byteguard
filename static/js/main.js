@@ -1,19 +1,19 @@
-import "./api.js";
+console.log("askPings called");
+import { askPings } from "./api.js";
 
 const input = document.getElementById("user-input");
 const responseBox = document.getElementById("response");
 const sendBtn = document.getElementById("send-btn");
 
-sendBtn.addEventListener("click", askPings);
-input.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        askPings();
+sendBtn.addEventListener("click", sendMessage);
+input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        sendMessage();
     }
 });
 
-async function askPings() {
-
+async function sendMessage() {
     const question = input.value.trim();
 
     if (!question) return;
@@ -21,34 +21,11 @@ async function askPings() {
     responseBox.textContent = "Thinking...";
 
     try {
-
-        const response = await fetch("/think", {
-
-            method: "POST",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-                message: question
-            })
-
-        });
-
-        const data = await response.json();
-
+        const data = await askPings(question);
         responseBox.textContent = data.response;
-
     }
-
-    catch (error) {
-
-        responseBox.textContent =
-            "Something went wrong.";
-
-        console.error(error);
-
+    catch (err) {
+        console.error(err);
+        responseBox.textContent = "Something went wrong.";
     }
-
 }
