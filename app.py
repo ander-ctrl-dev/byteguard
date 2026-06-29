@@ -3,17 +3,6 @@ import random, socket, subprocess, requests, re
 from dotenv import load_dotenv
 import os
 from math import sqrt
-from openai import OpenAI
-print("Running from:", os.getcwd())
-print(__file__)
-
-
-load_dotenv()
-WEATHER_API_KEY = os.getenv("WEATHER_API_KEY")
-app = Flask(__name__)
-
-
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 @app.post("/ask")
 def ask():
