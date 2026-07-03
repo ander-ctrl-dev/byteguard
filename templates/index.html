@@ -15,13 +15,21 @@
     <div class="baseboard"></div>
 
     <!-- Window -->
+    <div class="window-frame">
     <div class="window">
+    <div class="window-glow"></div>
+
+    <div class="pane vertical"></div>
+    <div class="pane horizontal"></div>
+    
 
         <div class="sky">
 
             <div class="star s1"></div>
             <div class="star s2"></div>
             <div class="star s3"></div>
+            <div class="star s4"></div>
+            <div class="star s5"></div>
 
             <div class="moon">
                 <div class="crater c1"></div>
@@ -32,6 +40,7 @@
         </div>
 
     </div>
+    </div>
 
     <!-- Window sill -->
     <div class="windowsill"></div>
@@ -40,21 +49,97 @@
     <div class="plant">
 
         <div class="pot"></div>
-
         <div class="vine v1"></div>
         <div class="vine v2"></div>
         <div class="vine v3"></div>
 
     </div>
 
+    <div class="bookshelf">
+
+    <!-- ================= Shelf 1 ================= -->
+
+    <div class="shelf shelf1">
+
+        <div class="book blue" id="networkingBook"></div>
+        <div class="book green" id="linuxBook"></div>
+        <div class="book orange" id="gedBook"></div>
+        <div class="book purple" id="favoriteBook"></div>
+
+    </div>
+
+
+    <!-- ================= Shelf 2 ================= -->
+
+    <div class="shelf shelf2">
+
+        <div class="book tall" id="flaskBook"></div>
+        <div class="book short" id="javascriptBook"></div>
+        <div class="book red" id="pythonBook"></div>
+        <div class="book blue" id="pragmaticBook"></div>
+
+        <div class="succulent">
+
+            <div class="succulent-pot"></div>
+
+            <div class="leaf leaf1"></div>
+            <div class="leaf leaf2"></div>
+            <div class="leaf leaf3"></div>
+            <div class="leaf leaf4"></div>
+            <div class="leaf leaf5"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= Shelf 3 ================= -->
+
+    <div class="shelf shelf3">
+
+        <div
+            class="book black secret-book"
+            id="terminalBook">
+        </div>
+
+        <div class="book green"></div>
+        <div class="book orange"></div>
+
+    </div>
+
+
+    <!-- ================= Shelf 4 ================= -->
+
+    <div class="shelf shelf4">
+
+        <div class="book blue"></div>
+        <div class="book purple"></div>
+
+        <div id="duckSpeech"></div>
+
+        <div class="duck">
+
+            <div class="duck-body"></div>
+            <div class="duck-head"></div>
+            <div class="duck-eye"></div>
+            <div class="duck-beak"></div>
+
+            <div class="duck-leg left"></div>
+            <div class="duck-leg right"></div>
+
+        </div>
+
+        <div class="book red"></div>
+
+    </div>
+
+</div>
+
+
     <!-- Furniture -->
     <div class="rug"></div>
 
     <div class="beanbag"></div>
-
-    <div class="desk"></div>
-
-    <div class="bookshelf"></div>
 
     <div class="robot-cat"></div>
 
@@ -64,6 +149,29 @@
 
 </div>
 
+<div id="terminalOverlay">
+
+    <div class="terminalWindow">
+
+        <div class="terminalHeader">
+        PINGS' OS
+        </div>
+
+        <div id="terminalOutput">
+Welcome.
+
+Type <b>help.</b>
+        </div>
+
+        <input
+            id="terminalInput"
+            placeholder="Enter command..."
+            autocomplete="off"
+        >
+
+    </div>
+
+</div>
 
 </body>
 <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>

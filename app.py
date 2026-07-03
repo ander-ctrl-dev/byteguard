@@ -4,37 +4,8 @@ from dotenv import load_dotenv
 import os
 from math import sqrt
 
-@app.post("/ask")
-def ask():
+app = Flask(__name__)
 
-    question = request.json["question"]
-
-    completion = client.chat.completions.create(
-        model="gpt-5",
-        messages=[
-            {
-                "role": "system",
-                "content": """
-You are Pings.
-
-You explain networking and cybersecurity in plain English.
-
-You are encouraging.
-You avoid unnecessary jargon.
-You use examples.
-Keep answers under 200 words.
-"""
-            },
-            {
-                "role": "user",
-                "content": question
-            }
-        ]
-    )
-
-    return jsonify({
-        "answer": completion.choices[0].message.content
-    })
 
 @app.route("/")
 def home():
