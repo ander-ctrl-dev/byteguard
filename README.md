@@ -7,7 +7,7 @@ ByteGuard is a full-stack educational web application built with Flask, JavaScri
 
 Whether you’re learning how to troubleshoot a network, identify PC components, or explore computer hardware, ByteGuard encourages users to learn by interacting rather than simply reading.
 
-![ByteGuard Room](images/pings-home.png)
+![ByteGuard Room](screenshots/pings-home.png)
 
 ⸻
 
@@ -42,7 +42,7 @@ Cozy Learning Environment
 
 Every piece of the interface—from the moonlit window to the coffee table—is custom designed to create a welcoming place to learn.
 
-![ByteGuard Room](images/hardware-lab.png)
+![ByteGuard Room](screenshots/hardware-lab.png)
 
 
 ⸻
