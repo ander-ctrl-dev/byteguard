@@ -1,3 +1,4 @@
+// PINGS FUNCTIONS //
 console.log("askPings called");
 import { askPings } from "./api.js";
 
@@ -22,8 +23,6 @@ if (input && responseBox && sendBtn) {
     });
 
 }
-
-
 async function sendMessage() {
     const question = input.value.trim();
 
@@ -41,6 +40,7 @@ async function sendMessage() {
     }
 }
 
+// TERMINAL FUNCTIONS // 
 const book = document.getElementById("terminalBook");
 const terminal = document.getElementById("terminalOverlay");
 const terminalInput = document.getElementById("terminalInput");
@@ -51,6 +51,7 @@ book.addEventListener("click", () => {
     terminal.style.display = "flex";
 
 });
+
 terminalInput.addEventListener("keydown", (e) => {
 
     if (e.key === "Enter") {
@@ -61,6 +62,7 @@ terminalInput.addEventListener("keydown", (e) => {
     }
 
 });
+
 function runCommand(command){
 
     command = command.trim().toLowerCase();
@@ -183,6 +185,8 @@ function runCommand(command){
     }
 
 }
+
+// ALL DUCK RELATED FUNCTIONS // 
 function quack() {
     const speech = new SpeechSynthesisUtterance("Quack!");
     speech.rate = 1.4;
@@ -302,3 +306,119 @@ duck.addEventListener("click", () => {
     quack();
 
 });
+
+// BOOK RELATED FUNCTIONS // 
+const overlay=document.getElementById("bookOverlay");
+const title=document.getElementById("bookTitle");
+const content=document.getElementById("bookContent");
+const closeBook=document.getElementById("closeBook");
+
+
+document.querySelectorAll(".book").forEach(book => {
+
+    book.addEventListener("click", () => {
+
+        openBook(book.dataset.lesson);
+
+    });
+
+});
+
+const books={
+
+    networking:{
+
+        title:"Networking+",
+
+        content:`
+
+        <h2>Chapter One</h2>
+
+        <p>Packets are tiny envelopes...</p>
+
+        `
+    },
+
+    linux:{
+
+        title:"Linux",
+
+        content:`
+
+        <h2>Welcome.</h2>
+
+        `
+    },
+
+    pragmatic:{
+
+        title:"The Pragmatic Programmer",
+
+        content:`
+
+        <h2>Thinking Like A Developer</h2>
+
+        `
+    }
+
+};
+
+function openBook(name) {
+
+    const lesson = books[name];
+
+    if (!lesson) {
+        console.log("Book not found:", name);
+        return;
+    }
+
+    title.textContent = lesson.title;
+    content.innerHTML = lesson.content;
+
+    overlay.classList.remove("hidden");
+}
+    closeBook.onclick=()=>{
+
+    overlay.classList.add("hidden");
+
+};
+
+// HARDWARE LAB //
+const hardwareProject = document.getElementById("hardwareProject");
+hardwareProject.addEventListener("click", openHardwareLab);
+
+function openHardwareLab(){
+
+    title.textContent = "Welcome to Pings' Workbench";
+
+    document.querySelector(".rightPage").innerHTML = `
+        <div id="pingsSketch">
+
+            <h3>To Do:</h3>
+
+            <ul>
+                <li>✓ Find screwdriver</li>
+                <li>☐ Install CPU</li>
+                <li>☐ Install RAM</li>
+                <li>☐ Install GPU</li>
+                <li>☐ Don't panic</li>
+            </ul>
+
+        </div>
+    `;
+
+    content.innerHTML = `
+        <p>
+            Looks like Pings took his computer apart...
+            and now needs a little help putting it back together.
+        </p>
+
+        <button id="beginHardware" class="build-btn">
+            Build the PC →
+        </button>
+    `;
+
+    overlay.classList.remove("hidden");
+}
+
+

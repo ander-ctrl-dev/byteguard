@@ -41,6 +41,13 @@
 
     </div>
     </div>
+    <div class="sticky-note">
+    DHCP?
+    <br>
+    Check Gateway
+    <br>
+    Ping 8.8.8.8
+</div>
 
     <!-- Window sill -->
     <div class="windowsill"></div>
@@ -60,12 +67,29 @@
     <!-- ================= Shelf 1 ================= -->
 
     <div class="shelf shelf1">
+        <div
+        class="book blue"
+        id="networkingBook"
+        data-title="Networking"
+        data-lesson="networking"></div>
 
-        <div class="book blue" id="networkingBook"></div>
-        <div class="book green" id="linuxBook"></div>
-        <div class="book orange" id="gedBook"></div>
-        <div class="book purple" id="favoriteBook"></div>
 
+        <div 
+        class="book green" 
+        id="linuxBook"
+        data-title="Linux for Beginners"
+        data-lesson="linux"></div>
+        <div 
+        class="book orange" 
+        id="gedBook"
+        data-title="GED Math Survival Guide"
+        data-lesson="math"></div>
+
+        <div
+        class="book purple"
+        id="pragmaticBook"
+        data-title="The Pragmatic Programmer"
+        data-lesson="web"></div>
     </div>
 
 
@@ -137,9 +161,62 @@
 
 
     <!-- Furniture -->
-    <div class="rug"></div>
 
-    <div class="beanbag"></div>
+    <div class="coffee-area">
+        <div class="rug"></div>
+
+    <div class="beanbag left"></div>
+
+    
+    <div class="coffee-table">
+
+    <div class="coffee-mug">
+        <div class="steam steam1"></div>
+        <div class="steam steam2"></div>
+        <div class="steam steam3"></div>
+    </div>
+
+    <div class="notebook">
+        <div class="notebook-line line1"></div>
+        <div class="notebook-line line2"></div>
+        <div class="notebook-line line3"></div>
+    </div>
+
+    <div class="pencil"></div>
+
+    <div class="usb-drive"></div>
+
+</div>
+
+
+        <div class="table-shadow"></div>
+
+    </div>
+
+    <div class="beanbag right"></div>
+
+</div>
+<div class="pc-project" id="hardwareProject">
+
+
+    <div class="motherboard"></div>
+
+    <div class="cpu"></div>
+
+    <div class="ram ram1"></div>
+    <div class="ram ram2"></div>
+
+    <div class="gpu"></div>
+
+    <div class="screw screw1"></div>
+    <div class="screw screw2"></div>
+    <div class="screw screw3"></div>
+
+    <div class="screwdriver"></div>
+
+</div>
+
+
 
     <div class="robot-cat"></div>
 
@@ -159,7 +236,6 @@
 
         <div id="terminalOutput">
 Welcome.
-
 Type <b>help.</b>
         </div>
 
@@ -172,6 +248,31 @@ Type <b>help.</b>
     </div>
 
 </div>
+
+
+<div id="bookOverlay" class="hidden">
+<div class="bookWindow">
+
+    <button id="closeBook">✕</button>
+
+    <div class="leftPage">
+
+        <h1 id="bookTitle"></h1>
+
+        <div id="bookContent"></div>
+
+    </div>
+
+    <div class="bookSpine"></div>
+
+    <div class="rightPage">
+
+        <div id="pageArt"></div>
+
+    </div>
+
+</div>
+
 
 </body>
 <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
