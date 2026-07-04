@@ -1,10 +1,10 @@
 // PINGS FUNCTIONS //
-console.log("askPings called");
+
 import { askPings } from "./api.js";
 
-const input = document.getElementById("user-input");
-const responseBox = document.getElementById("response");
-const sendBtn = document.getElementById("send-btn");
+const input = document.getElementById("userInput");
+const responseBox = document.getElementById("chatMessages");
+const sendBtn = document.getElementById("sendBtn");
 
 if (input && responseBox && sendBtn) {
 
@@ -24,21 +24,41 @@ if (input && responseBox && sendBtn) {
 
 }
 async function sendMessage() {
+
     const question = input.value.trim();
 
     if (!question) return;
 
+    // Show temporary message
     responseBox.textContent = "Thinking...";
 
     try {
+
         const data = await askPings(question);
-        responseBox.textContent = data.response;
-    }
-    catch (err) {
+
+        // Clear the "Thinking..." text
+        responseBox.innerHTML = "";
+
+        // Create a new bot message
+        const botMessage = document.createElement("div");
+        botMessage.className = "message bot";
+        botMessage.textContent =
+            data.reply ||
+            data.response ||
+            JSON.stringify(data);
+
+        responseBox.appendChild(botMessage);
+
+        input.value = "";
+
+    } catch (err) {
+
         console.error(err);
-        responseBox.textContent = "Something went wrong.";
+        responseBox.textContent = "⚠️ Couldn't reach Pings.";
+
     }
 }
+
 
 // TERMINAL FUNCTIONS // 
 const book = document.getElementById("terminalBook");

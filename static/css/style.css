@@ -119,7 +119,6 @@ body {
         inset 0 2px rgba(255,255,255,.25),
         0 6px 14px rgba(0,0,0,.3);
 }
-
 .window{
     position:relative;
 
@@ -166,6 +165,164 @@ body {
         0 6px 14px rgba(0,0,0,.3);
 
 }
+.bulb{
+    width:9px;
+    height:9px;
+    z-index: 2;
+
+    border-radius:50%;
+
+    position:relative;
+
+    animation:twinkle 2.5s infinite alternate;
+}
+.lights-top{
+    position:absolute;
+
+    top:-8px;
+    left:14px;
+    right:14px;
+
+    display:flex;
+    justify-content:space-between;
+
+    z-index:20;
+}
+.lights-bottom{
+    position:absolute;
+
+    bottom:-8px;
+    left:14px;
+    right:14px;
+
+    display:flex;
+    justify-content:space-between;
+
+    z-index:20;
+}
+.lights-left{
+    position:absolute;
+
+    left:-8px;
+    top:16px;
+    bottom:16px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    z-index:20;
+}
+.lights-right{
+    position:absolute;
+
+    right:-8px;
+    top:16px;
+    bottom:16px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    z-index:20;
+}
+.light-blue{
+    background:#46d8ff;
+    box-shadow:0 0 12px #46d8ff;
+}
+.light-yellow{
+    background:#ffe96d;
+    box-shadow:0 0 12px #ffe96d;
+}
+.light-green{
+    background:#66ff88;
+    box-shadow:0 0 12px #66ff88;
+}
+.light-pink{
+    background:#ff88db;
+    box-shadow:0 0 12px #ff88db;
+}
+.light-purple{
+    background:#b98cff;
+    box-shadow:0 0 12px #b98cff;
+}
+.light-cyan{
+    background:#78ffff;
+    box-shadow:0 0 12px #78ffff;
+}
+.bulb::before{
+    content:"";
+    position:absolute;
+
+    width:2px;
+    height:10px;
+
+    background:#444;
+
+    left:50%;
+    transform:translateX(-50%);
+
+    top:-10px;
+}
+.bulb::after{
+    content:"";
+    position:absolute;
+
+    width:8px;
+    height:4px;
+
+    background:#777;
+
+    border-radius:2px;
+
+    left:50%;
+    transform:translateX(-50%);
+
+    top:-4px;
+}
+.bulb:nth-child(odd){
+    animation-duration:2s;
+}
+.bulb:nth-child(even){
+    animation-duration:3.3s;
+}
+.bulb:nth-child(3n){
+    animation-duration:2.7s;
+}
+.window-lights .wire{
+    position:absolute;
+    background:#5b5b5b;
+    z-index:0;
+}
+.window-lights .top{
+    top:14px;
+    left:22px;
+    width:300px;
+    height:2px;
+}
+.window-lights .right{
+    top:14px;
+    right:16px;
+
+    width:2px;
+    height:180px;
+}
+.window-lights .bottom{
+    bottom:18px;
+    left:22px;
+
+    width:300px;
+    height:2px;
+}
+.window-lights .left{
+    top:14px;
+    left:16px;
+
+    width:2px;
+    height:180px;
+}
+
+
 .sky{
 
     position:absolute;
@@ -192,6 +349,8 @@ body {
     );
     pointer-events:none;
 }
+
+
 .floor{
     position:absolute;
     left:0;
@@ -1641,7 +1800,6 @@ repeating-linear-gradient(
     box-shadow:0 0 8px #66f5ff;
 
 }
-
 .eyes{
     position:absolute;
     inset:0;
@@ -1662,6 +1820,83 @@ repeating-linear-gradient(
 
     animation:blink 5s infinite;
 }
+#pingsChat{
+    position:absolute;
+
+    left:500px;
+    bottom:350px;
+
+    width:320px;
+    height:220px;
+
+    background: rgba(18, 25, 45, .65);
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(120,190,255,.25);
+
+    box-shadow:
+    0 0 25px rgba(80,180,255,.18);
+
+    border-radius:18px;
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+}
+#chatMessages{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:15px;
+
+    color:white;
+
+    font-size:14px;
+}
+.chatInput{
+
+    display:flex;
+
+    border-top:1px solid rgba(255,255,255,.12);
+}
+#userInput{
+
+    flex:1;
+
+    padding:12px;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    color:white;
+}
+#sendBtn{
+
+    width:80px;
+
+    border:none;
+
+    cursor:pointer;
+
+    background:#4fd6ff;
+
+    color:#07233a;
+
+    font-weight:bold;
+
+    transition:.25s;
+}
+#sendBtn:hover{
+
+    background:#83e6ff;
+}
+
 
 /* ANIMATIONS */
 @keyframes blink{
@@ -1755,7 +1990,3 @@ box-shadow:0 0 16px cyan;
         transform:translateY(-10px);
     }
 }
-
-
-/* LIGHTS */
-
