@@ -36,10 +36,8 @@ async function sendMessage() {
 
         const data = await askPings(question);
 
-        // Clear the "Thinking..." text
         responseBox.innerHTML = "";
 
-        // Create a new bot message
         const botMessage = document.createElement("div");
         botMessage.className = "message bot";
         botMessage.textContent =
@@ -441,4 +439,89 @@ function openHardwareLab(){
     overlay.classList.remove("hidden");
 }
 
+// OBJECT EXPLANATIONS //
+function addBotMessage(message) {
+    const chatMessages = document.getElementById("chatMessages");
 
+    const botMessage = document.createElement("div");
+    botMessage.className = "message bot";
+    botMessage.textContent = message;
+
+    chatMessages.appendChild(botMessage);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+const objectCooldowns = {};
+
+function interactiveObject(id, messages, cooldown = 5000) {
+
+    const element = document.getElementById(id);
+
+    if (!element) return;
+
+    element.addEventListener("click", (event) => {
+        event.stopPropagation();
+
+        const now = Date.now();
+
+        if (objectCooldowns[id] && now - objectCooldowns[id] < cooldown) {
+            return;
+        }
+
+        objectCooldowns[id] = now;
+
+        const message =
+            messages[Math.floor(Math.random() * messages.length)];
+
+        console.log("Clicked:", id);
+console.log(message);
+
+addBotMessage(message);
+
+
+    });
+
+}
+
+interactiveObject("moon-container", [
+    "🌕 Average distance from Earth: 238,855 miles.",
+    "🌕 The moon reflects sunlight — it doesn't glow by itself!",
+    "🌕 There are footprints up there from Apollo astronauts."
+]);
+interactiveObject("robotCat", [
+    "🐱 *yeehaw*",
+    "🐱 Byte has active warrants for his arrest in 3 operating systems",
+    "🐱 The cat was not here when I moved in."
+]);
+interactiveObject("hardwareProject", [
+    "🖥️ Ready to build a PC?"
+]);
+interactiveObject("plant-1", [
+    "🌿 I'm fake. Pings forgets to water me anyway.",
+    "🌱 Oxygen production: minimal. Morale boost: maximum.",
+    "🪴 I have survived entirely on good vibes."
+]);
+interactiveObject("usbDrive", [
+    "💾 Hopefully this isn't plugged in upside down.",
+    "🔌 It only takes three tries to insert correctly.",
+    "📁 Contains 14 versions of final_final_REALfinal.zip."
+]);
+interactiveObject("duck", [
+    "🦆 The duck knows more about networking than he lets on.",
+    "🦆 Byte keeps taking him off of the shelf",
+    "🦆 Quack."
+]);
+interactiveObject("coffee-mug", [
+    "☕ Coffee level: Critical.",
+    "☕ This mug has witnessed every bug.",
+    "☕ Fueling questionable programming decisions."
+]);
+interactiveObject("plant-2", [
+    "🌱 Byte knocked me over yesterday.",
+    "🪴 Somehow still alive.",
+    "🌿 Photosynthesis.exe is running."
+]);
+interactiveObject("bookshelf", [
+    "📚 The duck has somehow read all of them.",
+    "📚 Reading documentation counts as adventuring.",
+    "📚 Byte keeps sleeping on the networking books."
+]);
